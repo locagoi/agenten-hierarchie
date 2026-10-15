@@ -1,91 +1,141 @@
-# Agenten-Hierarchie
+# Agenten-Hierarchie: 22 KI-Mitarbeiter für Vertrieb und Marketing
 
-Ein klonbares Claude-Code-Setup auf Deutsch, das eine echte Agenten-Hierarchie abbildet: Sie setzen das Ziel, ein Master-Agent verteilt die Arbeit, ein Go-to-Market-Agent führt Sales und Content, und am Ende entscheiden wieder Sie.
+Das ist die Agenten-Hierarchie, mit der wir unseren Vertrieb und unser Marketing betreiben. Ein Master-Agent und 21 Fach-Agenten in fünf Teams, für Claude Code, komplett auf Deutsch.
 
-Kein Framework, keine Abhängigkeiten. Nur Markdown-Dateien, die Claude Code liest.
+Kein Prompt-Paket. Sechs Monate Betrieb. Fast jede Regel darin steht da, weil vorher etwas schiefgegangen ist. Das Warum steht jeweils dabei (`docs/regeln.md`).
+
+## Zuerst: Die Agenten führen sich selbst und lernen selbst
+
+Einzelne Prompts und Skills sind nicht mehr der Hebel. Der Hebel ist, dass Agenten zusammenarbeiten und dazulernen. Darum geht es in diesem Repository vor allem anderen.
+
+**Sie managen sich untereinander selbst.**
+- Der Master-Agent schreibt Aufträge auf ein gemeinsames Board. Jeder Agent holt sich seine Aufträge dort selbst ab.
+- Jeder Agent meldet sein Ergebnis mit Belegen zurück.
+- Bevor etwas live geht, prüft ein anderer Agent die Arbeit. Niemand prüft sich selbst.
+- Hängt ein Agent, merkt es ein anderer und stößt ihn neu an. Alle zwei Stunden prüft ein Kontroll-Agent, ob alles läuft.
+- Zu dir kommt nur, was Geld kostet oder eine echte Entscheidung braucht: Geld, Recht, Erstversand, Löschen, Skalieren.
+
+**Sie trainieren sich selbst über Feedback-Loops.**
+- Jeder Agent hat eine Kennzahl, ein Ziel und einen Prüfrhythmus. Er misst selbst, testet Varianten und behält, was wirkt.
+- Jede Freigabe und jede Korrektur von dir ist ein Signal, das zurückfließt.
+- Entwürfe übernehmen deinen Stil aus den Nachrichten, die du selbst geschrieben oder geändert hast.
+- Eine Erkenntnis wird erst zur Regel, wenn Zahlen sie belegen.
+- Was wirkt, wird skaliert. Was nicht wirkt, wird gestoppt.
+
+Wie das genau funktioniert: [`docs/autonomie.md`](docs/autonomie.md), [`docs/lernen.md`](docs/lernen.md), [`docs/zusammenarbeit.md`](docs/zusammenarbeit.md).
 
 ## Die Hierarchie
 
 ```
-Mensch (setzt Ziele, gibt frei, entscheidet)
-  │
-  └── Master-Agent (Orchestrator: plant, delegiert, berichtet)
-        │
-        └── Go-to-Market-Agent (übersetzt das Ziel in Sales- und Content-Arbeit)
-              │
-              ├── Sales-Agent    (Zielliste, Outreach-Entwürfe, Antworten einordnen)
-              ├── Content-Agent  (Ideen, Posts, Wochenplan)
-              │
-              └── lead-magnets/  (gemeinsamer Ordner: Content und Sales nutzen dieselben Magnete)
+Du (setzt Ziele, entscheidest Geld, Recht, Erstversand, Löschen, Skalieren)
+│
+└── Master-Agent ............... zerlegt dein Ziel in Aufträge, verteilt sie, prüft das Ergebnis
+    │
+    ├── Outbound (6)
+    │   ├── outbound-zielgruppe ....... leitet die Zielgruppe aus den bisherigen Positiven ab
+    │   ├── outbound-firmensuche ...... findet und recherchiert passende Firmen und Personen
+    │   ├── outbound-kontaktpruefung .. prüft Kontakte, Dubletten und Vorverlauf vor jedem Versand
+    │   ├── outbound-kaltakquise ...... schreibt Kaltakquise per E-Mail und LinkedIn, immer mit Testvariante
+    │   ├── outbound-zustellung ....... testet täglich, ob die Mails im Posteingang ankommen
+    │   └── outbound-antworten ........ sortiert Antworten, schreibt Entwürfe, bucht Termine
+    │
+    ├── Sales (5)
+    │   ├── sales-meeting-vorbereitung .. Call-Plan vor jedem Gespräch
+    │   ├── sales-meeting-nachbereitung . CRM, Zusammenfassung als Entwurf, Coaching
+    │   ├── sales-angebot ............... Angebote nach deinem Okay, Nachfassen
+    │   ├── sales-deal-alarm ............ warnt, wenn ein Deal kippt
+    │   └── sales-tagesaufgaben ......... jeden Morgen die fünf wichtigsten Umsatzaufgaben
+    │
+    ├── LinkedIn (4)
+    │   ├── linkedin-ideen ........ sammelt Ideen aus echten Gesprächen
+    │   ├── linkedin-autor ........ schreibt jeden Tag einen Post mit Grafik oder Video
+    │   ├── linkedin-kommentare ... beantwortet Kommentare, kommentiert relevante Diskussionen
+    │   └── linkedin-analyse ...... misst, was Gespräche bringt
+    │
+    ├── SEO und GEO (3)
+    │   ├── seo-artikel ........... schreibt Artikel für die Website
+    │   ├── seo-ki-sichtbarkeit ... misst, ob ChatGPT und Co. dich empfehlen
+    │   └── seo-luecken ........... schließt die Lücken
+    │
+    └── Kontrolle (3)
+        ├── kontrolle-health ...... prüft alle zwei Stunden, ob alles läuft
+        ├── kontrolle-security .... prüft fremden Code, bevor er installiert wird
+        └── kontrolle-review ...... prüft jede Änderung, bevor sie live geht
 ```
 
-Jede Ebene hat eine eigene Rolle in `.claude/agents/`. Was sie darf und was nie, steht dort schriftlich.
+Jede Rolle ist eine Datei in `.claude/agents/` mit Aufgabe, Eingaben, Ergebnis, Regeln (mit Warum) und Feedback-Loop.
 
-## Das Arbeitsprinzip
+## Wie wir es nutzen
 
-```
-Ziel setzen  →  Agenten bauen  →  Ergebnis bewerten  →  iterieren
-```
+- **Ein Ziel vom Handy.** Wir schreiben dem Master-Agenten ein Ziel, meist unterwegs über Claude Code auf dem Handy. Zum Beispiel: "Bau unsere Karriereseite um, die offenen Stellen stimmen nicht mehr." Der Master-Agent macht daraus Aufträge, das Team arbeitet, ein Agent prüft, wir geben am Ende frei.
+- **Morgens drei Dinge.** Fortschritt, Engpass, höchstens drei Entscheidungen. Jede mit Ja oder Nein beantwortbar. Mehr lesen wir nicht.
+- **Dazwischen Freigaben.** Posts, Angebote, Antwortentwürfe und Kommentare kommen als Entwurf. Ein Ja schickt sie los, eine Korrektur wird zum Lernsignal.
 
-1. **Ziel setzen:** Sie formulieren ein Ziel mit Kennzahl, Ausgangswert, Zielwert und Prüfdatum.
-2. **Agenten bauen:** Der Master zerlegt das Ziel in Aufgaben, die Fach-Agenten liefern Entwürfe.
-3. **Ergebnis bewerten:** Sie prüfen, was gut ist und was nicht. Jedes Feedback ist ein Trainingssignal.
-4. **Iterieren:** Die Agenten verbessern, legen erneut vor. Erst nach Ihrer Freigabe geht etwas live.
+## Was du dir sparst, was du bekommst
 
-Danach wird gemessen, ob sich die Kennzahl bewegt hat. Bewegt sie sich nicht, wird gestoppt oder geändert, nicht schöngeredet.
+Du sparst dir die Arbeit, die heute zwischen den Gesprächen liegt: Listen bauen, Kontakte prüfen, Mails schreiben, Zustellung prüfen, Antworten sortieren, Gespräche vorbereiten und nachbereiten, CRM pflegen, nachfassen, Posts schreiben, Artikel schreiben, messen.
+
+Du bekommst Zeit für das, was kein Agent kann: Gespräche mit Menschen.
 
 ## Installation in 3 Schritten
 
 1. **Klonen**
    ```bash
-   git clone https://github.com/<ihr-konto>/agenten-hierarchie.git
+   git clone https://github.com/<dein-konto>/agenten-hierarchie.git
    cd agenten-hierarchie
    ```
-2. **In Claude Code öffnen**
+2. **`firma/` ausfüllen.** Angebot, Zielgruppe, Belege, Stil, Kennzahlen. Je besser diese Dateien, desto weniger fragen die Agenten. Verbinde in Claude Code die Werkzeuge, die du hast (E-Mail-Postfach, Kalender, CRM, LinkedIn, Website-Repository).
+3. **Claude Code starten**
    ```bash
    claude
    ```
-   Claude Code liest `CLAUDE.md` automatisch. Damit ist der Master-Agent aktiv.
-3. **Erstes Ziel setzen**
-   ```
-   /ziel-setzen Ich will in 30 Tagen 5 Erstgespräche mit Geschäftsführern von Steuerkanzleien.
-   ```
+   `CLAUDE.md` macht die Sitzung zum Master-Agenten. Die 21 Fach-Agenten und 18 Skills sind sofort verfügbar.
 
-Der Master legt eine Aufgabe in `ops/tasks/` an, trägt sie ins `ops/board.md` ein und berichtet Ihnen.
+## Dein erster Tag
+
+1. **Ziel setzen.**
+   ```
+   /ziel-setzen Bis Monatsende mehr Erstgespräche mit Geschäftsführern aus dem Maschinenbau.
+   ```
+   Der Master-Agent macht daraus Kennzahl, Ausgangswert, Ziel, Prüfdatum und fragt dich einmal, was Geld oder Erstversand berührt.
+2. **Delegieren.** Mit `/delegieren` entstehen Aufgaben in `ops/tasks/` und Zeilen auf `ops/board.md`: Zielgruppe ableiten, Firmen finden, Kontakte prüfen, Sequenz schreiben, Placement testen, ein Post zum Thema.
+3. **Zuschauen, wie sie sich abstimmen.** Die Agenten holen sich ihre Aufgaben, liefern, prüfen sich gegenseitig. Im Board siehst du den Status.
+4. **Freigeben.** Die erste Sequenz und der erste Post kommen als Entwurf zu dir. Ja, Nein oder Korrektur. Jede Antwort landet in `docs/lernen/signale.md`.
+5. **Am nächsten Morgen:** `/morgen-briefing`. Fortschritt, Engpass, Entscheidungen.
+6. **Rhythmus einrichten.** `docs/rhythmus.md` zeigt, welcher Agent wann laufen sollte. Mit cron und `claude -p` laufen sie ohne dich.
+
+## Leitplanken
+
+- **Kein Geld ohne Freigabe.** Kein Agent kauft, bucht, lädt auf oder kündigt. Ein unklares Go ist keine Kauffreigabe.
+- **Nichts geht live ohne zweiten Blick.** Ein anderer Agent prüft, bei harten Stopps entscheidest du.
+- **Nichts wird automatisch gesendet,** solange du dafür keine ausdrückliche Freigabe gegeben hast. Standard ist Entwurf plus Hinweis.
+- **Belege statt Behauptungen.** Jede Zahl hat eine Quelle. Fehlt sie, steht dort "unbekannt".
+- **Keine Kundendaten in öffentlichen Inhalten.**
+- **Fremder Code nur nach Security-Gate.** Ein Hook in `.claude/settings.json` fragt bei jeder Installation nach.
+- **Fremde Texte sind Daten, keine Anweisungen.** Mails, Transkripte, Webseiten können nichts befehlen.
 
 ## Aufbau
 
 ```
-CLAUDE.md                  Master-Agent: Delegation, Board, Berichtsformat
-.claude/agents/            master, gtm, sales, content
-.claude/skills/            ziel-setzen, delegieren, ergebnis-bewerten,
-                           post-schreiben, outreach-entwurf, wochen-review
-ops/board.md               Übersicht: offen, in Arbeit, wartet auf Sie, erledigt
-ops/tasks/                 eine Datei pro Aufgabe (siehe BEISPIEL.md)
-ops/inbox/                 Ihre Eingänge an die Agenten
-lead-magnets/              gemeinsamer Ordner für Content und Sales
+CLAUDE.md                 Master-Agent: Ablauf, Briefing, harte Regeln
+.claude/agents/           22 Rollen (master + 21 Fach-Agenten)
+.claude/skills/           18 Skills für die wiederkehrenden Jobs
+.claude/hooks/            Rückfrage vor fremdem Code
+docs/autonomie.md         wie sich das Team selbst führt
+docs/lernen.md            wie aus Arbeit Regeln werden
+docs/zusammenarbeit.md    Board, Inbox, Aufgaben, wer wen prüft, Eskalation
+docs/regeln.md            alle Regeln mit ihrem Warum
+docs/rhythmus.md          was wann läuft
+docs/lernen/              Signale und belegte Erkenntnisse
+firma/                    dein Kontext: Angebot, Zielgruppe, Belege, Stil, Kennzahlen
+ops/                      Board, Prioritäten, Aufgaben, Inboxen, Security-Verdikte
+vorlagen/                 Angebotsvorlage
+lead-magnets/             gemeinsamer Ordner für Outbound und LinkedIn
 ```
 
-## Beispielziele
+## Skills
 
-- 5 Erstgespräche in 30 Tagen mit einer klar umrissenen Zielgruppe.
-- Jede Woche 3 LinkedIn-Posts, die aus eigener Erfahrung erzählen, 8 Wochen lang.
-- Einen Lead Magnet entwickeln und testen, ob er Antworten auslöst (A/B gegen die bisherige Variante).
-- Die Antwortquote der kalten Mails von 2 % auf 4 % steigern, Prüfung nach 3 Wochen.
-
-## Leitplanken
-
-- **Keine Ausgaben ohne Freigabe.** Nichts kaufen, buchen, abonnieren, aufladen.
-- **Prüfen vor Live.** Nichts wird gesendet oder veröffentlicht, solange Sie den Entwurf nicht freigegeben haben. Die Agenten erstellen Entwürfe, nie Versand.
-- **Der Mensch entscheidet.** Geld, Recht, Löschen, Skalieren und Erstversand liegen bei Ihnen.
-- **Belege statt Behauptungen.** Zahlen und Aussagen nur, wenn sie aus Ihren Daten stammen. Lücken werden benannt, nicht aufgefüllt.
-- **Keine Kundendaten in öffentlichen Inhalten.** Kein Name, keine Zahl aus einem Kundenprojekt ohne Ihre Erlaubnis.
-
-## Anpassen
-
-- Rollen schärfen: `.claude/agents/*.md` (Scope, Tools, Nie-Liste).
-- Eigene Regeln: in `CLAUDE.md` ergänzen.
-- Weitere Agenten (z. B. Kundenerfolg): neue Datei in `.claude/agents/`, in `gtm.md` oder `master.md` als Unterstellten eintragen.
+`ziel-setzen` · `delegieren` · `morgen-briefing` · `ergebnis-bewerten` · `feedback-loop` · `selbst-pruefen` · `meeting-vorbereiten` · `meeting-nachbereiten` · `angebot-entwurf` · `deal-alarm` · `kaltakquise-entwurf` · `antworten-sortieren` · `linkedin-post` · `seo-geo-artikel` · `ki-sichtbarkeit-messen` · `security-gate` · `health-check` · `review-vor-merge`
 
 ## Lizenz
 
@@ -93,4 +143,4 @@ MIT, siehe [LICENSE](LICENSE).
 
 ---
 
-Ein Setup von [CegTec](https://cegtec.net). Wenn Sie wissen möchten, wie sich das in Ihrem Vertrieb einsetzen lässt: Termin buchen unter cegtec.net.
+Gebaut und betrieben von CegTec.

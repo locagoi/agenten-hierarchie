@@ -1,17 +1,7 @@
 # Board
 
-Der Master-Agent pflegt diese Tabelle. Eine Zeile pro Aufgabe.
+Gepflegt vom Master-Agenten, Status pflegen die Agenten selbst. Status: neu · in-arbeit · zur-pruefung · zurueck · wartet-auf-mensch · fertig · gemessen.
 
-Status: `offen` | `in Arbeit` | `wartet auf Mensch` | `läuft` | `erledigt` | `gestoppt`
-
-| Aufgabe | Ziel / Kennzahl | Status | Owner | Frist | Prüfdatum |
-|---|---|---|---|---|---|
-| [BEISPIEL](tasks/BEISPIEL.md) | 5 Erstgespräche in 30 Tagen | offen | gtm | 2026-12-01 | 2026-12-15 |
-
-## Wartet auf Mensch
-
-(leer)
-
-## Gelernt
-
-(Nur belegte Erkenntnisse mit Verweis auf die Aufgabe.)
+| ID | Aufgabe | Owner | Prüfer | Status | Frist | Prüfdatum | Datei |
+|---|---|---|---|---|---|---|---|
+| 001 | Beispiel: Zielkriterien aus den letzten echten Positiven ableiten | outbound-zielgruppe | master | neu | | | ops/tasks/VORLAGE.md |

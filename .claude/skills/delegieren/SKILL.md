@@ -1,21 +1,19 @@
 ---
 name: delegieren
-description: Übergibt eine Aufgabe sauber an den GTM-Agenten (und von dort an Sales oder Content). Nutzen, wenn eine Aufgabendatei bereit ist.
+description: 'Ein Ziel in Aufträge zerlegen und aufs Board schreiben: je Auftrag Owner, Ergebnisformat, Frist, Prüfer, Grenzen. Nutzen nach ziel-setzen.'
 ---
 
 # Delegieren
 
-Ein guter Auftrag enthält:
+## Schritte
+1. Ziel in Teilaufgaben zerlegen, die je ein Agent allein erledigen kann.
+2. Je Teilaufgabe eine Datei `ops/tasks/<datum>-<kurzname>.md` nach `ops/tasks/VORLAGE.md`.
+3. Je Aufgabe eine Zeile auf `ops/board.md`, Status `neu`.
+4. Prüfer eintragen. Nie der Agent selbst. Für alles, was live geht: `kontrolle-review`.
+5. Abhängigkeiten eintragen ("startet nach ..."). Der nachfolgende Agent holt sich die Aufgabe selbst, sobald die vorherige `fertig` ist.
+6. Grenzen in jede Aufgabe: was nicht gesendet, gekauft, gelöscht wird.
 
-- **Ziel und Kennzahl** (Verweis auf die Aufgabendatei in `ops/tasks/`).
-- **Ergebnis:** Was genau wird geliefert, in welchem Format, wo abgelegt.
-- **Frist.**
-- **Grenzen:** Was ist ausdrücklich nicht erlaubt (senden, veröffentlichen, ausgeben).
-- **Kontext:** Zielgruppe, Botschaft, vorhandene Magnete aus `lead-magnets/`.
-
-Ablauf:
-
-1. Aufgabe im Board auf "in Arbeit" setzen.
-2. `gtm` starten und den Auftrag in diesem Format übergeben. `gtm` verteilt an `sales` und `content`.
-3. Rückmeldung abwarten, nicht nachbauen. Ergebnis landet in der Aufgabendatei unter "Ergebnis".
-4. Weiter mit `/ergebnis-bewerten`.
+## Regeln
+- Höchstens drei bis vier Aufgaben gleichzeitig in Arbeit.
+- Ein Auftrag ohne Ergebnisformat und Frist ist kein Auftrag.
+- Was im Mandat liegt, wird nicht zurückgefragt.

@@ -1,18 +1,24 @@
 ---
 name: ziel-setzen
-description: Schärft ein Ziel zu Kennzahl, Ausgangswert, Zielwert, Prüfdatum und Owner und legt die erste Aufgabe an. Nutzen, wenn der Mensch ein neues Ziel nennt.
+description: 'Ein Ziel des Menschen messbar machen: Kennzahl, Ausgangswert, Zielwert, Prüfdatum, Owner. Immer der erste Schritt, bevor gearbeitet wird.'
 ---
 
 # Ziel setzen
 
-1. Fragen Sie nur nach, was fehlt (max. 3 Fragen auf einmal):
-   - **Kennzahl:** Woran sehen wir, dass es geklappt hat? (z. B. Erstgespräche, positive Antworten)
-   - **Ausgangswert:** Wo stehen wir heute? Unbekannt ist eine gültige Antwort, dann ist die erste Aufgabe "Messung herstellen".
-   - **Zielwert und Prüfdatum.**
-2. Schreiben Sie das Ziel in einem Satz: "Bis <Datum> steigt <Kennzahl> von <Ausgang> auf <Ziel>."
-3. Legen Sie `ops/tasks/<datum>-<kurzname>.md` nach Vorlage `ops/tasks/BEISPIEL.md` an.
-4. Tragen Sie die Aufgabe ins `ops/board.md` ein (Status "offen", Owner, Frist, Prüfdatum).
-5. Delegieren Sie mit `/delegieren`.
-6. Antworten Sie im Berichtsformat aus `CLAUDE.md`.
+**Eingabe:** ein Satz des Menschen, oft vom Handy. Beispiel: "Ich will bis Monatsende mehr Erstgespräche mit Geschäftsführern aus dem Maschinenbau."
 
-Kein Ziel ohne Messweg. Kein Messweg heißt: erst messen.
+## Schritte
+1. Kennzahl festlegen, die das Ziel wirklich abbildet (gebuchte Termine, nicht gesendete Mails).
+2. Ausgangswert aus den Daten holen. Ist er nicht messbar: erste Aufgabe heißt "Messung herstellen".
+3. Zielwert und Prüfdatum festlegen. Fehlt beides, einen begründeten Vorschlag machen, nicht fragen.
+4. Owner (ein Agent, nicht "alle") und Umsetzungsfrist eintragen.
+5. Harte Stopps benennen, die das Ziel berühren wird (Budget, Erstversand, Skalieren). Die werden jetzt EINMAL gebündelt gefragt.
+6. In `ops/prioritaeten.md` einsortieren, dann `delegieren`.
+
+## Ausgabe
+```
+Ziel: <Satz>
+Kennzahl: <...> · Ausgangswert: <...> · Ziel: <...> · Prüfdatum: <...>
+Owner: <agent> · Umsetzung bis: <...>
+Braucht deine Freigabe: <nichts | eine Zeile>
+```
