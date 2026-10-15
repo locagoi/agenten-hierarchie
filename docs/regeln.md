@@ -35,6 +35,7 @@ Fast jede Zeile hier steht da, weil vorher etwas schiefgegangen ist. Das "Warum"
 |---|---|
 | Vorverlauf prüfen vor jedem Versand, über die Identität der Person. | Kalte Vorlagen gingen an Menschen, mit denen schon ein Gespräch lief oder die längst abgesagt hatten. |
 | Nur Klartext, keine Links, kein Tracking. | Formatierte Mails mit Links landeten bei manchen Anbietern fast komplett im Spam. |
+| Jede Sequenz hat auch eine Fassung nur für LinkedIn. | Werbe-E-Mails ohne Einwilligung sind in Deutschland auch an Firmen ein Abmahnrisiko (§ 7 UWG). Im Test blieb die Sequenz deshalb gesperrt, bis die Rechtsfrage geklärt war. Kein Rechtsrat. |
 | Kadenz: Tag 0 LinkedIn-Vernetzung, Mails Tag 2, 3, 7. | Ein fester Takt macht Varianten vergleichbar. |
 | Mail 1 bietet einen konkreten Lead Magnet als Frage an, ohne Link. | Auf konkreten Nutzen kamen Antworten, auf die allgemeine Terminfrage kaum. |
 | Immer eine wirklich andere Testvariante, nicht nur andere Wörter. | Wortänderungen haben nie einen messbaren Unterschied gebracht. |

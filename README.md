@@ -4,6 +4,36 @@ Das ist die Agenten-Hierarchie, mit der wir unseren Vertrieb und unser Marketing
 
 Kein Prompt-Paket. Sechs Monate Betrieb. Fast jede Regel darin steht da, weil vorher etwas schiefgegangen ist. Das Warum steht jeweils dabei (`docs/regeln.md`).
 
+## Die ersten 15 Minuten
+
+Du brauchst nur Claude Code. Kein CRM, kein Werkzeug, kein Konto.
+
+```bash
+git clone https://github.com/locagoi/agenten-hierarchie.git
+cd agenten-hierarchie
+claude
+```
+
+Dann tipp:
+
+```
+/einrichten
+```
+
+Du beantwortest **sechs Fragen in einer Nachricht**: was du verkaufst, an wen, welches Problem, woran du Bedarf erkennst, was du belegen kannst, dein Ziel. Stichworte reichen. Website-Text einfügen geht auch.
+
+**Danach hältst du drei Dinge in der Hand** (Ordner `ergebnisse/`, das Wichtigste auch direkt im Chat):
+
+| Was | Wozu |
+|---|---|
+| Zielgruppe mit Suchrezept | Du weißt, wen du ansprichst und wo du heute die ersten 20 Firmen findest |
+| Sequenz mit Variante A und B | Mails und LinkedIn-Nachrichten zum Kopieren, ohne Links, ohne erfundene Zahlen |
+| Wochenplan | Was du je Tag tust, wie viele Kontakte, woran du Freitag siehst, ob es wirkt |
+
+Ab dem nächsten Morgen: `/morgen-briefing`. Jeden Montag: `/wochenplan`.
+
+Ohne angebundene Werkzeuge verschickst du von Hand. Die Agenten schreiben, prüfen und rechnen. Wie ein fertiges Ergebnis aussieht: [`docs/beispiele/`](docs/beispiele/).
+
 ## Zuerst: Die Agenten führen sich selbst und lernen selbst
 
 Einzelne Prompts und Skills sind nicht mehr der Hebel. Der Hebel ist, dass Agenten zusammenarbeiten und dazulernen. Darum geht es in diesem Repository vor allem anderen.
@@ -77,24 +107,13 @@ Du sparst dir die Arbeit, die heute zwischen den Gesprächen liegt: Listen bauen
 
 Du bekommst Zeit für das, was kein Agent kann: Gespräche mit Menschen.
 
-## In 15 Minuten startklar
+## Mehr Ziele, mehr Agenten
 
-1. **Klonen und Claude Code öffnen**
-   ```bash
-   git clone https://github.com/<dein-konto>/agenten-hierarchie.git
-   cd agenten-hierarchie
-   claude
-   ```
-   `CLAUDE.md` macht die Sitzung zum Master-Agenten. Die 21 Fach-Agenten und 19 Skills sind sofort verfügbar.
-2. **`/einrichten`**
-   Ein Interview in fünf Blöcken: Angebot, Zielgruppe, Belege, Stil mit Preisen, Kennzahlen und Werkzeuge. Daraus entstehen die Dateien in `firma/`. Was du nicht weißt, bleibt "unbekannt". Kein Agent rät es später.
-3. **Ziel an den Master**
-   ```
-   /ziel-setzen 20 Erstgespräche mit Geschäftsführern aus dem Maschinenbau im nächsten Monat
-   ```
-   Der Master-Agent macht daraus Kennzahl, Ausgangswert, Ziel und Prüfdatum, verteilt die Aufträge aufs Board und fragt dich einmal gebündelt, was Geld oder Erstversand berührt.
-
-Wie ein fertiges Ergebnis aussieht, bevor du selbst eins hast: [`docs/beispiele/`](docs/beispiele/).
+Nach dem Start gibst du dem Master weitere Ziele, auch vom Handy:
+```
+/ziel-setzen 20 Erstgespräche mit Geschäftsführern aus dem Maschinenbau im nächsten Monat
+```
+Der Master-Agent macht daraus Kennzahl, Ausgangswert, Ziel und Prüfdatum, verteilt die Aufträge aufs Board und fragt dich einmal gebündelt, was Geld oder Erstversand berührt.
 
 ## Werkzeuge
 
@@ -106,7 +125,7 @@ Ohne eigene Tools? Optional mit dem CegTec MCP verbinden ([Doku](https://www.ceg
 
 | Tag | Was passiert | Was bei dir landet |
 |---|---|---|
-| 1 | `/einrichten`, Ziel gesetzt, Aufträge auf dem Board | `firma/` gefüllt, Lückenliste, Board mit Owner und Prüfer je Auftrag |
+| 1 | `/einrichten`, sechs Fragen | Zielgruppe mit Suchrezept, Sequenz A/B, Wochenplan in `ergebnisse/` |
 | 1 bis 2 | Zielgruppe abgeleitet, erste Firmenliste, Kontakte geprüft | Liste mit Quelle je Kontakt, Ausschlüsse, Dubletten markiert |
 | 2 | Sequenz mit Variante A und B, Hypothese je Arm | Entwurf zur Freigabe des Erstversands ([Beispiel](docs/beispiele/kaltakquise-sequenz.md)) |
 | 2 bis 3 | Zustellung geprüft: SPF, DKIM, DMARC, Placement mit echter Copy | Prüfliste, was fehlt ([Playbook](docs/playbooks/zustellbarkeit.md)) |
@@ -122,8 +141,8 @@ Dazu Vorlagen, die du sonst einkaufen würdest: Antworten je Kategorie, LinkedIn
 
 ## Dein erster Tag im Detail
 
-1. **`/einrichten`** füllt `firma/`.
-2. **`/ziel-setzen`** macht dein Ziel messbar.
+1. **`/einrichten`** füllt `firma/` und liefert Zielgruppe, Sequenz A/B und Wochenplan.
+2. **`/ziel-setzen`** für jedes weitere Ziel.
 3. **Delegieren.** Mit `/delegieren` entstehen Aufgaben in `ops/tasks/` und Zeilen auf `ops/board.md`: Zielgruppe ableiten, Firmen finden, Kontakte prüfen, Sequenz schreiben, Placement testen, ein Post zum Thema. Von Hand geht das auch: `ops/scripts/neue-aufgabe.sh`.
 4. **Zuschauen, wie sie sich abstimmen.** Die Agenten holen sich ihre Aufgaben, liefern, prüfen sich gegenseitig. Stand: `ops/scripts/board-status.sh`.
 5. **Freigeben.** Die erste Sequenz und der erste Post kommen als Entwurf zu dir. Ja, Nein oder Korrektur. Jede Antwort landet in `docs/lernen/signale.md`.
@@ -146,7 +165,7 @@ Dazu Vorlagen, die du sonst einkaufen würdest: Antworten je Kategorie, LinkedIn
 ```
 CLAUDE.md                     Master-Agent: Ablauf, Briefing, harte Regeln
 .claude/agents/               22 Rollen (master + 21 Fach-Agenten)
-.claude/skills/               19 Skills, darunter einrichten (Onboarding-Interview)
+.claude/skills/               20 Skills, darunter einrichten (Schnellstart) und wochenplan
 .claude/hooks/                Rückfrage vor fremdem Code
 docs/
 ├── autonomie.md              wie sich das Team selbst führt
@@ -168,6 +187,7 @@ docs/
 │   ├── kennzahlen.md             Mails je Positiv, Schwelle 400, umbauen statt hochfahren
 │   └── zielgruppe-aus-positiven.md
 └── lernen/                   Signale und belegte Erkenntnisse
+ergebnisse/                   was du in der Hand hältst: Zielgruppe, Sequenz, Wochenplan
 firma/                        dein Kontext: Angebot, Zielgruppe, Belege, Stil, Kennzahlen, Werkzeuge
 vorlagen/
 ├── antworten.md              positiv, später, kein Bedarf, falsche Person, Abmeldung, Preisfrage
@@ -183,7 +203,7 @@ lead-magnets/                 gemeinsamer Ordner für Outbound und LinkedIn
 
 ## Skills
 
-`einrichten` · `ziel-setzen` · `delegieren` · `morgen-briefing` · `ergebnis-bewerten` · `feedback-loop` · `selbst-pruefen` · `meeting-vorbereiten` · `meeting-nachbereiten` · `angebot-entwurf` · `deal-alarm` · `kaltakquise-entwurf` · `antworten-sortieren` · `linkedin-post` · `seo-geo-artikel` · `ki-sichtbarkeit-messen` · `security-gate` · `health-check` · `review-vor-merge`
+`einrichten` · `wochenplan` · `ziel-setzen` · `delegieren` · `morgen-briefing` · `ergebnis-bewerten` · `feedback-loop` · `selbst-pruefen` · `meeting-vorbereiten` · `meeting-nachbereiten` · `angebot-entwurf` · `deal-alarm` · `kaltakquise-entwurf` · `antworten-sortieren` · `linkedin-post` · `seo-geo-artikel` · `ki-sichtbarkeit-messen` · `security-gate` · `health-check` · `review-vor-merge`
 
 ## Lizenz
 
@@ -191,4 +211,4 @@ MIT, siehe [LICENSE](LICENSE).
 
 ---
 
-Gebaut und betrieben von CegTec.
+Gebaut und im Einsatz bei CegTec. Fragen, Ideen oder ein Fehler gefunden? Mach ein Issue auf, wir lesen jedes.

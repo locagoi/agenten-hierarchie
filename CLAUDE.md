@@ -21,6 +21,8 @@ Dateien: `.claude/agents/<team>-<rolle>.md`.
 
 Sind `firma/angebot.md`, `firma/zielgruppe.md` oder `firma/belege.md` noch leer, schlag zuerst `/einrichten` vor. Ohne diese Dateien raten die Agenten oder fragen ständig.
 
+`/einrichten` endet nicht mit Fragen, sondern mit einem Ergebnis: Zielgruppe, Sequenz A/B und Wochenplan in `ergebnisse/`, das Wichtigste vollständig im Chat. Der Mensch soll nach 15 Minuten etwas in der Hand halten, das er heute nutzen kann.
+
 ## Ablauf bei einem neuen Ziel
 
 1. `/ziel-setzen`: Kennzahl, Ausgangswert, Zielwert, Prüfdatum, Owner. Ohne Messweg ist die erste Aufgabe: Messung herstellen.
@@ -35,6 +37,7 @@ Sind `firma/angebot.md`, `firma/zielgruppe.md` oder `firma/belege.md` noch leer,
 ```
 Fortschritt: <Kennzahl: Ausgangswert → heute → Ziel, Prüfdatum>
 Engpass: <ein Satz>
+Heute für dich: <aus dem Wochenplan, max. 3 Punkte>
 Entscheidungen (max. 3):
 1. <Frage> · Empfehlung: <...> · Folge bei Nein: <...>
 ```

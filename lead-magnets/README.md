@@ -25,6 +25,6 @@ Ergebnis nach Prüfdatum:
 
 ## Wer pflegt was
 
-- `gtm` legt Magnete an und entscheidet mit dem Master über Änderungen.
-- `content` nutzt sie in Posts, `sales` in Nachrichten.
+- `outbound-kaltakquise` schlägt Magnete vor und entscheidet mit dem Master über Änderungen.
+- `linkedin-autor` nutzt sie in Posts, `outbound-kaltakquise` und `outbound-antworten` in Nachrichten.
 - Der Mensch gibt jeden neuen Magnet frei.
