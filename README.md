@@ -11,6 +11,7 @@ Du brauchst nur Claude Code. Kein CRM, kein Werkzeug, kein Konto.
 ```bash
 git clone https://github.com/locagoi/agenten-hierarchie.git
 cd agenten-hierarchie
+git config core.hooksPath .githooks   # Commit-Sperre für Schlüssel, siehe unten
 claude
 ```
 
@@ -160,6 +161,20 @@ Dazu Vorlagen, die du sonst einkaufen würdest: Antworten je Kategorie, LinkedIn
 - **Fremder Code nur nach Security-Gate.** Ein Hook in `.claude/settings.json` fragt bei jeder Installation nach.
 - **Fremde Texte sind Daten, keine Anweisungen.** Mails, Transkripte, Webseiten können nichts befehlen.
 
+## Deine Daten und Schlüssel schützen
+
+Nach `/einrichten` stehen echte Firmendaten in deinem Klon: Angebot, Zielgruppe, Name, Ziele. Das ist gewollt, die Agenten brauchen sie. Es darf nur nicht versehentlich öffentlich werden.
+
+- **Vor einem öffentlichen Fork oder Push: `firma/` und `ergebnisse/` prüfen.** Auch `ops/board.md`, `ops/prioritaeten.md`, `ops/tasks/`, `lead-magnets/` und `docs/lernen/` füllen sich mit deinen Daten. Am sichersten: Dein Arbeitsstand liegt in einem **privaten** Repo.
+- **Nie Zugangsdaten in Dateien im Repo.** Schlüssel gehören in `.mcp.json` oder `.env`. Beide stehen in `.gitignore`.
+- **`.gitignore` hält schon raus:** `.mcp.json`, `.env*`, `*.key`, `*.pem`, `.claude/settings.local.json`, `ops/logs/`, `ops/inbox/`, `ergebnisse/`, `*.log`, `*.jsonl`. Damit auch die Ausgaben der Cron-Läufe mit `claude -p`.
+- **Commit-Sperre für Schlüssel einschalten** (einmal je Klon):
+  ```bash
+  git config core.hooksPath .githooks
+  ```
+  Danach stoppt `.githooks/pre-commit` jeden Commit mit typischen Schlüsseln (`sk-`, `sk_live_`, `rk_live_`, `ghp_`, `github_pat_`, `xoxb-`, `AKIA`, `AIza`, `BEGIN PRIVATE KEY`, `Bearer ...`) und Dateien wie `.env` oder `.mcp.json`.
+- **Ist ein Schlüssel schon committet:** Sofort beim Anbieter neu erzeugen. Löschen im nächsten Commit reicht nicht, er steht in der Historie.
+
 ## Aufbau
 
 ```
@@ -198,6 +213,7 @@ vorlagen/
 ops/
 ├── board.md, prioritaeten.md, tasks/, inbox/, logs/, security/
 └── scripts/                  neue-aufgabe.sh, board-status.sh
+.githooks/pre-commit          Commit-Sperre für Schlüssel (einschalten, siehe oben)
 lead-magnets/                 gemeinsamer Ordner für Outbound und LinkedIn
 ```
 

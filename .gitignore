@@ -1,2 +1,28 @@
-# Enthält nach dem Einrichten Zugangsdaten, nie committen
+# Schutz vor versehentlichem Leak. Gilt für jeden Fork.
+# Ein Muster hier wirkt nur auf Dateien, die noch nicht committet sind.
+
+# Zugangsdaten: nie committen
 .mcp.json
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+.claude/settings.local.json
+
+# Ausgaben der Agenten und headless-Läufe (claude -p, Cron)
+ops/logs/*
+!ops/logs/.gitkeep
+ops/inbox/**
+!ops/inbox/**/
+!ops/inbox/**/.gitkeep
+*.log
+*.jsonl
+nohup.out
+
+# Deine Ergebnisse: Zielgruppe, Sequenzen, Wochenpläne.
+# In einem privaten Repo darfst du diese Zeilen löschen.
+ergebnisse/*
+!ergebnisse/README.md
+!ergebnisse/.gitkeep

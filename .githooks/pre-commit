@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# Vorlage: blockt einen Commit, wenn er wie ein Zugangsschlüssel aussieht.
+# Einschalten (einmal je Klon):  git config core.hooksPath .githooks
+# Geprüft werden nur die Zeilen, die du gerade hinzufügst.
+# Fehlalarm? Zeile prüfen, Wert entfernen. Nur wenn du sicher bist: git commit --no-verify
+set -u
+
+MUSTER='sk-[A-Za-z0-9_-]{20,}|sk_live_[A-Za-z0-9]{10,}|rk_live_[A-Za-z0-9]{10,}|ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{20,}|xox[bpas]-[A-Za-z0-9-]{10,}|AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_-]{35}|-----BEGIN ([A-Z]+ )?PRIVATE KEY-----|[Bb]earer [A-Za-z0-9._~+/=-]{20,}'
+DATEIEN='(^|/)(\.env(\..*)?|\.mcp\.json|settings\.local\.json|[^/]*\.(pem|key|p12|pfx))$'
+
+fehler=0
+
+# 1. Dateien, die nie ins Repo gehören (auch wenn jemand sie mit -f hinzufügt)
+verboten=$(git diff --cached --name-only --diff-filter=ACMR | grep -E "$DATEIEN" || true)
+if [ -n "$verboten" ]; then
+  echo "Commit gestoppt: Diese Dateien enthalten meist Zugangsdaten:" >&2
+  printf '  %s\n' $verboten >&2
+  fehler=1
+fi
+
+# 2. Hinzugefügte Zeilen mit Schlüssel-Mustern
+treffer=$(git diff --cached -U0 --diff-filter=ACMR \
+  | awk '/^\+\+\+ /{ f = substr($0, 7); next } /^\+/{ print f ": " substr($0, 2) }' \
+  | grep -E "$MUSTER" || true)
+if [ -n "$treffer" ]; then
+  echo "Commit gestoppt: Das sieht nach einem Zugangsschlüssel aus:" >&2
+  # Nur Datei und Anfang des Treffers zeigen, nie den ganzen Schlüssel.
+  printf '%s\n' "$treffer" | while IFS= read -r z; do
+    datei="${z%%: *}"
+    wert=$(printf '%s' "${z#*: }" | grep -oE "$MUSTER" | head -n 1)
+    printf '  %s: %s...\n' "$datei" "${wert:0:8}" >&2
+  done
+  fehler=1
+fi
+
+if [ "$fehler" -ne 0 ]; then
+  echo >&2
+  echo "Schlüssel gehören in .mcp.json oder .env (beide ignoriert), nie in eine Datei im Repo." >&2
+  echo "Steht ein Schlüssel schon in einem Commit: Schlüssel beim Anbieter sofort neu erzeugen." >&2
+  exit 1
+fi
+exit 0

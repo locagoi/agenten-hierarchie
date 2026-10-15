@@ -6,11 +6,12 @@ description: 'Das tägliche Briefing für den Menschen: Fortschritt, Engpass, h�
 # Morgen-Briefing
 
 ## Schritte
-1. Zahlen je Ziel selbst nachzählen (nicht aus Agenten-Meldungen übernehmen).
-2. Den einen Engpass bestimmen, der das wichtigste Ziel gerade am stärksten bremst.
-3. Offene Fragen aus `ops/inbox/master/` und Board-Status `wartet-auf-mensch` sammeln. Nur harte Stopps bleiben übrig. Höchstens drei.
-4. Befunde von `kontrolle-health` nur, wenn sie ein Ziel gefährden.
-5. Den heutigen Tag aus dem neuesten `ergebnisse/wochenplan-*.md` holen. Gibt es keinen: `/wochenplan` vorschlagen.
+1. Zahlen je Ziel selbst nachzählen (nicht aus Agenten-Meldungen übernehmen). Board-Stand: `ops/scripts/board-status.sh` allein aufrufen, ohne `bash` davor und ohne Pipe. Warum: So greift die Freigabe aus `.claude/settings.json`, auch in Cron-Läufen.
+2. **Liegengebliebenes anstoßen.** Aufgaben im Status `neu` oder `zur-pruefung`, die nur auf einen Agenten warten (nicht auf den Menschen): jetzt an den Subagenten geben, wenn der Lauf das darf. Sonst unter "Heute für dich" den einen Satz nennen, mit dem der Mensch sie startet, z. B. `kontrolle-review: prüf Aufgabe 002`. Warum: Ohne Cron läuft kein Agent von allein. Im Test wartete der Erstversand auf eine Prüfung, die nie startete.
+3. Den einen Engpass bestimmen, der das wichtigste Ziel gerade am stärksten bremst.
+4. Offene Fragen aus `ops/inbox/master/` und Board-Status `wartet-auf-mensch` sammeln. Nur harte Stopps bleiben übrig. Höchstens drei.
+5. Befunde von `kontrolle-health` nur, wenn sie ein Ziel gefährden.
+6. Den heutigen Tag aus dem neuesten `ergebnisse/wochenplan-*.md` holen. Gibt es keinen: `/wochenplan` vorschlagen.
 
 ## Format (nichts anderes)
 ```

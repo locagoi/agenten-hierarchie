@@ -59,7 +59,8 @@ In dieser Reihenfolge, ohne auf einen weiteren Befehl zu warten:
 1. **Zielgruppe** nach `ergebnisse/zielgruppe.md`: Kriterien, eine Persona, Signal mit Fundort, Ausschlüsse. Dazu ein **Suchrezept**: wo der Mensch heute in 30 Minuten 20 passende Firmen findet, ohne Datenbank (konkrete Suchbegriffe für Jobbörsen, Google, LinkedIn, Branchenverzeichnisse) und welche Spalten seine Liste braucht.
 2. **Sequenz A/B** nach den Regeln von `/kaltakquise-entwurf`, Datei `ergebnisse/sequenz-<datum>.md`.
 3. **Wochenplan** nach `/wochenplan`, Datei `ergebnisse/wochenplan-<datum>.md`.
-4. Ziel in `ops/prioritaeten.md` als P0 eintragen. Eine Zeile pro Aufgabe auf `ops/board.md`, wenn der Plan Agenten-Aufgaben enthält.
+4. **Sofort prüfen lassen.** Gib Sequenz und Lead Magnet jetzt an den Subagenten `kontrolle-review` und arbeite seine Befunde ein, bevor du antwortest. Aufs Board kommt die Prüfung als `fertig` (oder mit offenem Befund für den Menschen), nie als `zur-pruefung`. Schreib nie "liegt zur Prüfung", wenn niemand prüft. Warum: Im Test blieb die Prüfung als Board-Zeile liegen. Ohne Cron stößt sie niemand an, und der Erstversand hing daran.
+5. Ziel in `ops/prioritaeten.md` als P0 eintragen. Eine Zeile pro Aufgabe auf `ops/board.md`, wenn der Plan Agenten-Aufgaben enthält.
 
 ## Schritt 4: Ausgabe im Chat
 

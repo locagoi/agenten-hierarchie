@@ -45,10 +45,15 @@ fi
 letzte="$(awk -F'|' '/^\| *[0-9]+ *\|/ { gsub(/ /, "", $2); if ($2 + 0 > max) max = $2 + 0 } END { print max + 0 }' "$BOARD")"
 id="$(printf '%03d' $((10#$letzte + 1)))"
 
+# Sonderzeichen wie / & \ in der Beschreibung für sed entschärfen.
+besch_sed="$(printf '%s' "$beschreibung" | sed -e 's/[\/&]/\\&/g')"
+tmp="$(mktemp)"
+trap 'rm -f "$tmp"' EXIT
 sed -e "s/^# Aufgabe: <Kurzname>/# Aufgabe: $name ($id)/" \
     -e "s/^Status: neu · Owner: <agent> · Prüfer: <anderer agent> · Frist: <Datum> · Prüfdatum: <Datum>/Status: neu · Owner: $owner · Prüfer: $pruefer · Frist: ${frist:-offen} · Prüfdatum: ${pruefdatum:-offen}/" \
-    -e "s/^<was genau, Ergebnisformat>/$beschreibung/" \
-    "$VORLAGE" > "$ROOT/$datei"
+    -e "s/^<was genau, Ergebnisformat>/$besch_sed/" \
+    "$VORLAGE" > "$tmp"
+cat "$tmp" > "$ROOT/$datei"
 
 printf '| %s | %s | %s | %s | neu | %s | %s | %s |\n' \
   "$id" "$beschreibung" "$owner" "$pruefer" "$frist" "$pruefdatum" "$datei" >> "$BOARD"

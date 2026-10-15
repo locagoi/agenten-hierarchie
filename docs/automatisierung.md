@@ -3,7 +3,7 @@
 Claude Code läuft auch ohne Oberfläche: `claude -p "<Auftrag>"` arbeitet einen Auftrag ab und beendet sich. Mit cron wird daraus ein Rhythmus. Welcher Agent wann läuft, steht in `docs/rhythmus.md`.
 
 ## Voraussetzungen
-1. Claude Code ist installiert und angemeldet (`claude` einmal interaktiv starten).
+1. Claude Code ist installiert und angemeldet. `claude` einmal interaktiv im Repo starten und dem Ordner vertrauen. Warum: Sonst ignoriert `claude -p` die Freigaben aus `.claude/settings.json`, und jeder Skriptaufruf scheitert.
 2. `/einrichten` ist gelaufen, `firma/` ist gefüllt.
 3. Ein Rechner, der durchläuft (Server, Mini-PC, VM). Ein Laptop im Ruhezustand verpasst Läufe.
 4. Logs gehen nach `ops/logs/`. Der Health-Check liest sie.
