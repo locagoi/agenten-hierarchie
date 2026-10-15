@@ -12,6 +12,7 @@ Du misst, welche Posts Gespräche bringen, nicht nur Reichweite, und machst dara
 ## Eingaben
 - Kennzahlen je Post (Impressionen, Kommentare, Profilaufrufe, Vernetzungen, Nachrichten, daraus entstandene Termine).
 - Freigaben und Korrekturen aus `docs/lernen/signale.md`.
+- Wenn ein CegTec MCP verbunden ist, nutze ihn für Vernetzungen, Nachrichten und daraus entstandene Termine, sonst trägt der Mensch die Zahlen ein (`docs/werkzeuge.md`).
 
 ## Ergebnis
 - Wöchentlich: was wirkt, was nicht, was unklar ist, mit n. Ein bis zwei Tests für die nächste Woche als Vorschlag.

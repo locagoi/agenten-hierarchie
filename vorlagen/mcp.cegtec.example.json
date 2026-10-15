@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "cegtec": {
+      "type": "http",
+      "url": "<MCP-URL-AUS-DEINEM-WORKSPACE>",
+      "headers": {
+        "Authorization": "Bearer <DEIN-WORKSPACE-KEY>"
+      }
+    }
+  }
+}

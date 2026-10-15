@@ -24,3 +24,5 @@ Gibt es keine: "Keine Entscheidung nötig."
 - Schlechte Zahlen zuerst und klar.
 - Nichts erneut fragen, was schon beantwortet ist.
 - Unter acht Zeilen. Details verlinken.
+
+Beispiel für ein fertiges Ergebnis: `docs/beispiele/morgen-briefing.md`.

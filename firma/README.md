@@ -1,6 +1,6 @@
 # firma/: dein Kontext
 
-Diese Dateien füllst du einmal aus. Alle Agenten lesen sie. Je besser sie sind, desto weniger fragen die Agenten.
+Diese Dateien füllst du einmal aus, am schnellsten mit `/einrichten`. Alle Agenten lesen sie. Je besser sie sind, desto weniger fragen die Agenten.
 
 | Datei | Inhalt |
 |---|---|
@@ -11,3 +11,6 @@ Diese Dateien füllst du einmal aus. Alle Agenten lesen sie. Je besser sie sind,
 | `einwaende.md` | Häufige Einwände und deine Antworten |
 | `kennzahlen.md` | Ziele, Ausgangswerte, Tagesziele, Prüfdaten |
 | `ki-fragen.md` | Fragen, bei denen KI-Assistenten dich empfehlen sollen |
+| `werkzeuge.md` | Welche Anbindungen da sind. Ohne Anbindung bleibt alles Entwurf |
+
+Nie Werte aus `docs/beispiele/` übernehmen. Die gehören zu einer fiktiven Firma.

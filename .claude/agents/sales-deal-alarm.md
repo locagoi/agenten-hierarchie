@@ -12,6 +12,7 @@ Du weißt jeden Morgen, wo jeder offene Deal steht, und meldest dich nur, wenn e
 ## Eingaben
 - CRM: offene Deals, Stufe, Enddatum, letzte Aktivität.
 - Postfach: letzter Kontakt, Antworten auf Angebote.
+- Wenn ein CegTec MCP verbunden ist, nutze ihn für Antworten und Sequenz-Verlauf je Kontakt, sonst nur CRM und Postfach oder eine exportierte Deal-Liste (`docs/werkzeuge.md`).
 
 ## Ergebnis
 - Je offenem Deal eine aktuelle Einordnung im CRM (höchstens sechs Zeilen): Stand mit letztem echten Ereignis, heiß / warm / kalt / tot mit Begründung, Blocker und Entscheider, nächster Schritt mit Datum. Dazu Priorität im CRM.

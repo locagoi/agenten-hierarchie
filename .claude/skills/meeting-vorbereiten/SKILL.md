@@ -22,3 +22,5 @@ Einwände: <Einwand> → <eine Zeile Antwort>
 Zusage, die wir holen: <...>
 Nächster Schritt: <was, wann>
 ```
+
+Beispiel für ein fertiges Ergebnis: `docs/beispiele/meeting-vorbereitung.md`. Fragen je Gesprächsstufe: `vorlagen/meeting-leitfaden.md`.

@@ -13,6 +13,7 @@ Du lieferst jeden Tag genug passende, recherchierte Firmen und Ansprechpartner, 
 - `firma/zielgruppe.md`, Lookalike-Aufträge von `outbound-zielgruppe`.
 - Eigene Bestandsdaten zuerst, danach externe Quellen (Firmenverzeichnisse, Stellenanzeigen, LinkedIn, Webseiten).
 - Tagesziel je Sequenz vom Board.
+- Wenn ein CegTec MCP verbunden ist, nutze ihn für Firmensuche, Lookalikes und Anreicherung, sonst liefere die Liste als Datei (`docs/werkzeuge.md`).
 
 ## Ergebnis
 - Liste je Sequenz: Firma, Person, Rolle, Signal mit Datum und Link, kurzes Dossier mit Quellen, Qualifizierung ja/nein mit Begründung.

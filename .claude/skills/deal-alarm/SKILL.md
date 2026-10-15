@@ -13,3 +13,5 @@ description: 'Täglicher Durchlauf über alle offenen Deals: Einordnung im CRM a
 5. Nur Risiko-Deals melden, höchstens drei Zeilen je Deal, mit Entwurf für die Rettungsnachricht.
 
 Kein Risiko: keine Meldung.
+
+Beispiel für ein fertiges Ergebnis: `docs/beispiele/deal-alarm.md`.

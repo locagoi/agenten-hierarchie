@@ -23,3 +23,5 @@ Ein Bild, das den Kern zeigt (z. B. eine echte Struktur, ein Ablauf), keine Stoc
 
 ## Ende
 Entwurf plus Grafik als Freigabe-Karte. Nie selbst veröffentlichen.
+
+Beispiel für ein fertiges Ergebnis: `docs/beispiele/linkedin-post.md`.

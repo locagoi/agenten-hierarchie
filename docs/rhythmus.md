@@ -6,6 +6,8 @@ Vorschlag für einen Arbeitstag. Die Zeiten passt du an. Geplante Läufe startes
 claude -p "/health-check" --agent kontrolle-health
 ```
 
+Fertige Cron-Zeilen, Berechtigungen und Hinweise zu Kosten: `docs/automatisierung.md`.
+
 | Wann | Wer | Was |
 |---|---|---|
 | alle 2 h | kontrolle-health | Health-Check, Hänger anstoßen |

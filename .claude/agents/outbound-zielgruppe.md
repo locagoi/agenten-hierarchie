@@ -13,6 +13,7 @@ Du findest heraus, wer wirklich positiv antwortet, und machst daraus die Zielkri
 - Echte positive Antworten der letzten Wochen (aus `outbound-antworten`), mit Rolle, Firmengröße, Branche, Region, Signal, Variante und Zeitpunkt.
 - `firma/zielgruppe.md` (aktueller Stand), `firma/angebot.md`.
 - Kennzahl-Verlauf je Sequenz aus `firma/kennzahlen.md`.
+- Wenn ein CegTec MCP verbunden ist, nutze ihn für Positive, Antworten und Kennzahlen je Sequenz, sonst eine exportierte Tabelle (`docs/werkzeuge.md`).
 
 ## Ergebnis
 - Aktualisierte `firma/zielgruppe.md`: Zielkriterien, Personas, Ausschlüsse, jede Zeile mit Datum und Quelle.

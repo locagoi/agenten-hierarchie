@@ -72,6 +72,7 @@ Fast jede Zeile hier steht da, weil vorher etwas schiefgegangen ist. Das "Warum"
 | Posts erzählen Geschichten aus eigener Erfahrung, nie belehren. | Belehrende Posts wirkten arrogant. |
 | Kein Kommentar-Köder. | Solche Posts werden gedrosselt. |
 | Posts starten aus dem Rohmaterial des Menschen, eine Idee pro Post, kein interner Jargon. | Rein von Agenten erdachte Posts lasen sich wie Betriebsberichte. |
+| Nie Preise oder Zahlen raten, auch keine Spanne oder "ab ca.". Preise nur aus `firma/angebot.md`, Zahlen nur aus `firma/belege.md`, sonst Lücke melden. | Im Test hat ein Agent einen Preis geraten. Ein genannter Preis ist beim Interessenten gesetzt. |
 | Jede Zahl mit Beleg aus `firma/belege.md`. Ohne Beleg Abbruch, nicht Weichspülen. | Eine falsche Zahl öffentlich kostet mehr als jeder Post bringt. |
 | Keine Kundennamen und Kundendaten in öffentlichen Inhalten ohne freigegebene Fallstudie. | Vertrauen der Kunden geht vor Reichweite. |
 | Kommentare nur nach Freigabe, Schweigen heißt nichts senden. | Ein Kommentar unter fremdem Namen ist öffentlich und bleibt. |

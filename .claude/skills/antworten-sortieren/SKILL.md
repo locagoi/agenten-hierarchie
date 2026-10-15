@@ -16,3 +16,5 @@ description: 'Eingehende Antworten einordnen, Antwortentwurf im Stil des Absende
    - Termin vorschlagen plus ein bis zwei Qualifizierungsfragen. Magnet darf Aufhänger sein.
 5. Ping an den Menschen mit Entwurf. Nicht senden ohne Freigabe.
 6. Kein Deal im CRM vor dem qualifizierten Termin. Kontakt plus Notiz reicht.
+
+Vorlagen je Kategorie: `vorlagen/antworten.md`. Preise nur aus `firma/angebot.md`, nie raten.

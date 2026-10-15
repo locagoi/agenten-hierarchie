@@ -18,3 +18,5 @@ description: 'Alle zwei Stunden prüfen, ob alle Agenten und geplanten Läufe ar
 - Kritisch (Versand gestoppt, doppelter Versand, Kunde betroffen): zusätzlich sofort an den Menschen.
 
 Nie selbst reparieren, senden oder löschen.
+
+Beispiel für ein fertiges Ergebnis: `docs/beispiele/health-check.md`.

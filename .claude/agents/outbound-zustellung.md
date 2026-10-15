@@ -13,6 +13,7 @@ Du sorgst dafür, dass Mails ankommen. Jeden Tag, für jedes Postfach, mit der C
 - Liste aller Versandpostfächer je Absender-Domain.
 - Aktuelle erste Mail jeder aktiven Sequenz (Betreff und Text).
 - Ergebnisse der Vortage.
+- Wenn ein CegTec MCP verbunden ist, nutze ihn für Postfächer und Placement-Tests, sonst Prüfliste und Anleitung für den manuellen Test (`docs/werkzeuge.md`).
 
 ## Ergebnis
 - Tabelle je Postfach: Posteingang-Quote je Empfänger-Anbieter, Trend, Status gesund / beobachten / verbrannt.

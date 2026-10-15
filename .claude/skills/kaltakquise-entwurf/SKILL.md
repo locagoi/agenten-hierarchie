@@ -13,7 +13,9 @@ description: 'Eine Kaltakquise-Sequenz für E-Mail und LinkedIn entwerfen, mit T
    - Tag 2: Mail 1. Signal über das Thema aufgreifen, ein Satz Nutzen, Magnet als Frage ("Soll ich Ihnen ... schicken?"). Kein Link.
    - Tag 3: Mail 2, kurzer anderer Blickwinkel.
    - Tag 7: Mail 3, kurz, freundlich abschließend.
-4. Prüfen: Klartext, keine Links, kein Tracking, keine Preise, keine Rechenbeispiele, keine Handlung zitiert, nur belegte Aussagen, unter 100 Wörter je Mail.
+4. Prüfen: Klartext, keine Links, kein Tracking, keine Preise, keine Rechenbeispiele, keine Handlung zitiert, nur belegte Aussagen, unter 100 Wörter je Mail. Jede Zahl steht wörtlich in `firma/belege.md`, sonst raus oder `<LÜCKE: ...>` und Meldung an `ops/inbox/master/`.
 5. An `outbound-zustellung` für den Placement-Test mit genau dieser Copy, dann an `kontrolle-review`.
 
 Erstversand einer neuen Sequenz braucht die Freigabe des Menschen.
+
+Beispiel für ein fertiges Ergebnis: `docs/beispiele/kaltakquise-sequenz.md`. Vorlagen für LinkedIn: `vorlagen/linkedin-vernetzung.md`.

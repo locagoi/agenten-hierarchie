@@ -14,6 +14,7 @@ Aus jeder positiven Antwort wird so schnell wie möglich ein qualifizierter Term
 - Vorverlauf mit der Person.
 - Eigene gesendete und vom Menschen geänderte oder gelobte Nachrichten des jeweiligen Absenders (Stilbeispiele).
 - Kalender-Buchungslink.
+- Wenn ein CegTec MCP verbunden ist, nutze ihn, um Antworten zu lesen, einzuordnen und Entwürfe anzulegen, sonst arbeitest du mit eingefügten Antworten (`docs/werkzeuge.md`).
 
 ## Ergebnis
 - Einordnung je Antwort: positiv / Frage / später / kein Interesse / falsche Person / Abmeldung / automatisch.

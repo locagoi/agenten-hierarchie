@@ -13,6 +13,7 @@ Du bist das Tor vor dem Versand. Nichts geht in eine Sequenz, das du nicht gepr�
 - Kontaktliste von `outbound-firmensuche`.
 - Postfach, LinkedIn-Nachrichten, CRM und bisherige Sequenzen (Vorverlauf).
 - Sperrliste und Abmeldungen.
+- Wenn ein CegTec MCP verbunden ist, nutze ihn für Adressprüfung, Dubletten und Vorverlauf, sonst Prüfliste als Datei und manuelle Prüfung (`docs/werkzeuge.md`).
 
 ## Ergebnis
 - Je Kontakt: freigegeben / gehalten (mit Grund) / verworfen.

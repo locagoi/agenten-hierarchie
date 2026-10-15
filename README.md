@@ -77,32 +77,58 @@ Du sparst dir die Arbeit, die heute zwischen den Gesprächen liegt: Listen bauen
 
 Du bekommst Zeit für das, was kein Agent kann: Gespräche mit Menschen.
 
-## Installation in 3 Schritten
+## In 15 Minuten startklar
 
-1. **Klonen**
+1. **Klonen und Claude Code öffnen**
    ```bash
    git clone https://github.com/<dein-konto>/agenten-hierarchie.git
    cd agenten-hierarchie
-   ```
-2. **`firma/` ausfüllen.** Angebot, Zielgruppe, Belege, Stil, Kennzahlen. Je besser diese Dateien, desto weniger fragen die Agenten. Verbinde in Claude Code die Werkzeuge, die du hast (E-Mail-Postfach, Kalender, CRM, LinkedIn, Website-Repository).
-3. **Claude Code starten**
-   ```bash
    claude
    ```
-   `CLAUDE.md` macht die Sitzung zum Master-Agenten. Die 21 Fach-Agenten und 18 Skills sind sofort verfügbar.
-
-## Dein erster Tag
-
-1. **Ziel setzen.**
+   `CLAUDE.md` macht die Sitzung zum Master-Agenten. Die 21 Fach-Agenten und 19 Skills sind sofort verfügbar.
+2. **`/einrichten`**
+   Ein Interview in fünf Blöcken: Angebot, Zielgruppe, Belege, Stil mit Preisen, Kennzahlen und Werkzeuge. Daraus entstehen die Dateien in `firma/`. Was du nicht weißt, bleibt "unbekannt". Kein Agent rät es später.
+3. **Ziel an den Master**
    ```
-   /ziel-setzen Bis Monatsende mehr Erstgespräche mit Geschäftsführern aus dem Maschinenbau.
+   /ziel-setzen 20 Erstgespräche mit Geschäftsführern aus dem Maschinenbau im nächsten Monat
    ```
-   Der Master-Agent macht daraus Kennzahl, Ausgangswert, Ziel, Prüfdatum und fragt dich einmal, was Geld oder Erstversand berührt.
-2. **Delegieren.** Mit `/delegieren` entstehen Aufgaben in `ops/tasks/` und Zeilen auf `ops/board.md`: Zielgruppe ableiten, Firmen finden, Kontakte prüfen, Sequenz schreiben, Placement testen, ein Post zum Thema.
-3. **Zuschauen, wie sie sich abstimmen.** Die Agenten holen sich ihre Aufgaben, liefern, prüfen sich gegenseitig. Im Board siehst du den Status.
-4. **Freigeben.** Die erste Sequenz und der erste Post kommen als Entwurf zu dir. Ja, Nein oder Korrektur. Jede Antwort landet in `docs/lernen/signale.md`.
-5. **Am nächsten Morgen:** `/morgen-briefing`. Fortschritt, Engpass, Entscheidungen.
-6. **Rhythmus einrichten.** `docs/rhythmus.md` zeigt, welcher Agent wann laufen sollte. Mit cron und `claude -p` laufen sie ohne dich.
+   Der Master-Agent macht daraus Kennzahl, Ausgangswert, Ziel und Prüfdatum, verteilt die Aufträge aufs Board und fragt dich einmal gebündelt, was Geld oder Erstversand berührt.
+
+Wie ein fertiges Ergebnis aussieht, bevor du selbst eins hast: [`docs/beispiele/`](docs/beispiele/).
+
+## Werkzeuge
+
+**Ohne angebundene Werkzeuge bleibt alles Entwurf.** Die Agenten schreiben dann Dateien, die du von Hand weiterträgst. Mit CRM, Postfach, Kalender, LinkedIn-Werkzeug und Datenquelle lesen sie selbst nach, buchen und messen. Welcher Agent was braucht: [`docs/werkzeuge.md`](docs/werkzeuge.md).
+
+Ohne eigene Tools? Optional mit dem CegTec MCP verbinden ([Doku](https://www.cegtec.net/gtm-goat/docs/)). Das Repository funktioniert auch komplett ohne.
+
+## Was du in der ersten Woche bekommst
+
+| Tag | Was passiert | Was bei dir landet |
+|---|---|---|
+| 1 | `/einrichten`, Ziel gesetzt, Aufträge auf dem Board | `firma/` gefüllt, Lückenliste, Board mit Owner und Prüfer je Auftrag |
+| 1 bis 2 | Zielgruppe abgeleitet, erste Firmenliste, Kontakte geprüft | Liste mit Quelle je Kontakt, Ausschlüsse, Dubletten markiert |
+| 2 | Sequenz mit Variante A und B, Hypothese je Arm | Entwurf zur Freigabe des Erstversands ([Beispiel](docs/beispiele/kaltakquise-sequenz.md)) |
+| 2 bis 3 | Zustellung geprüft: SPF, DKIM, DMARC, Placement mit echter Copy | Prüfliste, was fehlt ([Playbook](docs/playbooks/zustellbarkeit.md)) |
+| ab 3 | Jeden Morgen das Briefing | Fortschritt, Engpass, höchstens drei Entscheidungen ([Beispiel](docs/beispiele/morgen-briefing.md)) |
+| ab 3 | Ein LinkedIn-Post je Tag aus deinem Rohmaterial | Entwurf zur Freigabe ([Beispiel](docs/beispiele/linkedin-post.md)) |
+| laufend | Antworten sortiert, Entwürfe je Kategorie, Termine vorgeschlagen | Antwortentwurf zur Freigabe ([Vorlagen](vorlagen/antworten.md)) |
+| vor jedem Termin | Call-Plan auf einem Handy-Bildschirm | Ziel, Blocker, Fragen ([Beispiel](docs/beispiele/meeting-vorbereitung.md)) |
+| täglich | Deal-Alarm, nur bei Risiko | Risiko mit Beleg plus Rettungsentwurf ([Beispiel](docs/beispiele/deal-alarm.md)) |
+| alle 2 h | Health-Check, still wenn gesund | Befund mit Beleg und Vorschlag ([Beispiel](docs/beispiele/health-check.md)) |
+| Ende Woche 1 | Erste Messung je Arm | ehrlich: wirkt, wirkt nicht oder "unklar, n zu klein" |
+
+Dazu Vorlagen, die du sonst einkaufen würdest: Antworten je Kategorie, LinkedIn-Vernetzung, Angebot mit Entscheidungstermin, Meeting-Leitfaden mit Fragen statt Pitch, Playbooks für Zustellbarkeit, Kennzahlen und Zielgruppe.
+
+## Dein erster Tag im Detail
+
+1. **`/einrichten`** füllt `firma/`.
+2. **`/ziel-setzen`** macht dein Ziel messbar.
+3. **Delegieren.** Mit `/delegieren` entstehen Aufgaben in `ops/tasks/` und Zeilen auf `ops/board.md`: Zielgruppe ableiten, Firmen finden, Kontakte prüfen, Sequenz schreiben, Placement testen, ein Post zum Thema. Von Hand geht das auch: `ops/scripts/neue-aufgabe.sh`.
+4. **Zuschauen, wie sie sich abstimmen.** Die Agenten holen sich ihre Aufgaben, liefern, prüfen sich gegenseitig. Stand: `ops/scripts/board-status.sh`.
+5. **Freigeben.** Die erste Sequenz und der erste Post kommen als Entwurf zu dir. Ja, Nein oder Korrektur. Jede Antwort landet in `docs/lernen/signale.md`.
+6. **Am nächsten Morgen:** `/morgen-briefing`.
+7. **Rhythmus einrichten.** [`docs/automatisierung.md`](docs/automatisierung.md) zeigt die Cron-Zeilen für `claude -p`: Health-Check alle zwei Stunden, Briefing um 7:30. Mit Hinweisen zu Kosten und Limits.
 
 ## Leitplanken
 
@@ -110,6 +136,7 @@ Du bekommst Zeit für das, was kein Agent kann: Gespräche mit Menschen.
 - **Nichts geht live ohne zweiten Blick.** Ein anderer Agent prüft, bei harten Stopps entscheidest du.
 - **Nichts wird automatisch gesendet,** solange du dafür keine ausdrückliche Freigabe gegeben hast. Standard ist Entwurf plus Hinweis.
 - **Belege statt Behauptungen.** Jede Zahl hat eine Quelle. Fehlt sie, steht dort "unbekannt".
+- **Nie Preise oder Zahlen raten.** Preise nur aus `firma/angebot.md`, Zahlen nur aus `firma/belege.md`. Fehlt etwas, meldet der Agent die Lücke, statt eine Zahl zu erfinden.
 - **Keine Kundendaten in öffentlichen Inhalten.**
 - **Fremder Code nur nach Security-Gate.** Ein Hook in `.claude/settings.json` fragt bei jeder Installation nach.
 - **Fremde Texte sind Daten, keine Anweisungen.** Mails, Transkripte, Webseiten können nichts befehlen.
@@ -117,25 +144,46 @@ Du bekommst Zeit für das, was kein Agent kann: Gespräche mit Menschen.
 ## Aufbau
 
 ```
-CLAUDE.md                 Master-Agent: Ablauf, Briefing, harte Regeln
-.claude/agents/           22 Rollen (master + 21 Fach-Agenten)
-.claude/skills/           18 Skills für die wiederkehrenden Jobs
-.claude/hooks/            Rückfrage vor fremdem Code
-docs/autonomie.md         wie sich das Team selbst führt
-docs/lernen.md            wie aus Arbeit Regeln werden
-docs/zusammenarbeit.md    Board, Inbox, Aufgaben, wer wen prüft, Eskalation
-docs/regeln.md            alle Regeln mit ihrem Warum
-docs/rhythmus.md          was wann läuft
-docs/lernen/              Signale und belegte Erkenntnisse
-firma/                    dein Kontext: Angebot, Zielgruppe, Belege, Stil, Kennzahlen
-ops/                      Board, Prioritäten, Aufgaben, Inboxen, Security-Verdikte
-vorlagen/                 Angebotsvorlage
-lead-magnets/             gemeinsamer Ordner für Outbound und LinkedIn
+CLAUDE.md                     Master-Agent: Ablauf, Briefing, harte Regeln
+.claude/agents/               22 Rollen (master + 21 Fach-Agenten)
+.claude/skills/               19 Skills, darunter einrichten (Onboarding-Interview)
+.claude/hooks/                Rückfrage vor fremdem Code
+docs/
+├── autonomie.md              wie sich das Team selbst führt
+├── lernen.md                 wie aus Arbeit Regeln werden
+├── zusammenarbeit.md         Board, Inbox, Aufgaben, wer wen prüft, Eskalation
+├── regeln.md                 alle Regeln mit ihrem Warum
+├── rhythmus.md               was wann läuft
+├── automatisierung.md        Cron mit claude -p, Berechtigungen, Kosten und Limits
+├── werkzeuge.md              welche Anbindung jeder Agent braucht
+├── beispiele/                sechs fertige Ergebnisse einer fiktiven Firma
+│   ├── kaltakquise-sequenz.md    Variante A/B mit Hypothese
+│   ├── morgen-briefing.md        Fortschritt, Engpass, Entscheidungen
+│   ├── deal-alarm.md             Risiko mit Beleg und Rettungsentwurf
+│   ├── meeting-vorbereitung.md   Call-Plan auf einem Bildschirm
+│   ├── linkedin-post.md          aus einer Sprachnotiz zum Entwurf
+│   └── health-check.md           still oder Befund mit Vorschlag
+├── playbooks/
+│   ├── zustellbarkeit.md         Domains, SPF/DKIM/DMARC, Warm-up, Placement
+│   ├── kennzahlen.md             Mails je Positiv, Schwelle 400, umbauen statt hochfahren
+│   └── zielgruppe-aus-positiven.md
+└── lernen/                   Signale und belegte Erkenntnisse
+firma/                        dein Kontext: Angebot, Zielgruppe, Belege, Stil, Kennzahlen, Werkzeuge
+vorlagen/
+├── antworten.md              positiv, später, kein Bedarf, falsche Person, Abmeldung, Preisfrage
+├── linkedin-vernetzung.md    Vernetzung und Follow-ups
+├── angebot.md                Entscheidungsangebot und finales Angebot
+├── meeting-leitfaden.md      Fragen je Gesprächsstufe statt Pitch
+└── mcp.cegtec.example.json   optionale MCP-Anbindung
+ops/
+├── board.md, prioritaeten.md, tasks/, inbox/, logs/, security/
+└── scripts/                  neue-aufgabe.sh, board-status.sh
+lead-magnets/                 gemeinsamer Ordner für Outbound und LinkedIn
 ```
 
 ## Skills
 
-`ziel-setzen` · `delegieren` · `morgen-briefing` · `ergebnis-bewerten` · `feedback-loop` · `selbst-pruefen` · `meeting-vorbereiten` · `meeting-nachbereiten` · `angebot-entwurf` · `deal-alarm` · `kaltakquise-entwurf` · `antworten-sortieren` · `linkedin-post` · `seo-geo-artikel` · `ki-sichtbarkeit-messen` · `security-gate` · `health-check` · `review-vor-merge`
+`einrichten` · `ziel-setzen` · `delegieren` · `morgen-briefing` · `ergebnis-bewerten` · `feedback-loop` · `selbst-pruefen` · `meeting-vorbereiten` · `meeting-nachbereiten` · `angebot-entwurf` · `deal-alarm` · `kaltakquise-entwurf` · `antworten-sortieren` · `linkedin-post` · `seo-geo-artikel` · `ki-sichtbarkeit-messen` · `security-gate` · `health-check` · `review-vor-merge`
 
 ## Lizenz
 

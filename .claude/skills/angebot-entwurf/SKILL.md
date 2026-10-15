@@ -17,3 +17,4 @@ description: 'Angebot als Entwurf mit Entscheidungstermin, plus Nachfass-Plan Ta
 
 ## Nie
 - Senden ohne Freigabe. Preise oder Bedingungen außerhalb von `firma/angebot.md`. Erfundene Referenzen.
+- Preise raten oder schätzen. Fehlt ein Preis in `firma/angebot.md`, bleibt `<LÜCKE: Preis für ...>` stehen, das Angebot geht nicht zur Freigabe, die Lücke geht an `ops/inbox/master/`.
